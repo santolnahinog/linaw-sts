@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linaw: See where every peso goes</title>
+  <meta name="description" content="Linaw is a citizen's toolkit for reading public project data, spotting red flags, and reporting corruption concerns through official channels in the Philippines.">
+  <meta name="theme-color" content="#e8eef5">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div data-chrome="header"></div>
+
+  <main id="main">
+
+    <!-- HERO: the lens clears redacted public records -->
+    <section class="hero" data-lens aria-labelledby="hero-title">
+      <div class="lens" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <h1 id="hero-title" class="hero__title">
+            <span class="w" style="--i:0">Public</span>
+            <span class="w" style="--i:1">money</span>
+            <span class="w" style="--i:2">should</span>
+            <span class="w" style="--i:3">never</span>
+            <span class="w" style="--i:4">be</span>
+            <span class="w" style="--i:5"><span class="redact">hard to see.</span></span>
+          </h1>
+          <p class="hero__sub rise" style="--d:0">Linaw is a citizen's toolkit for reading public project data, spotting red flags, and reporting concerns through official channels. Built for the Philippines, where billions in public works are hard for ordinary people to check.</p>
+          <div class="hero__actions rise" style="--d:120">
+            <a class="btn btn--primary" href="tools.html#detective"><span>Take the red flag quiz</span></a>
+            <a class="btn btn--glass" href="#how"><span>See how it happens</span></a>
+          </div>
+          <div class="lens-bar rise" style="--d:240">
+            <button class="linkbtn" type="button" data-lens-toggle aria-pressed="false">Clear everything</button>
+            <span data-lens-hint>Move your cursor over the page to clear it.</span>
+          </div>
+        </div>
+
+        <div class="dossier" aria-label="Sample public project records">
+          <article class="sheet sheet--a glass" style="--d:0">
+            <header class="sheet__head">
+              <h2 class="sheet__title">Project record</h2>
+              <span class="chip">Illustrative sample</span>
+            </header>
+            <dl class="rows">
+              <div><dt>Project</dt><dd>Riverbank protection wall</dd></div>
+              <div><dt>Contractor</dt><dd><span class="redact">Apex Ridge Builders</span></dd></div>
+              <div><dt>Contract cost</dt><dd><span class="redact">₱48,500,000</span></dd></div>
+              <div><dt>Reported status</dt><dd>Completed</dd></div>
+              <div><dt>Site check</dt><dd><span class="redact redact--flag">No structure found</span></dd></div>
+            </dl>
+          </article>
+
+          <article class="sheet sheet--b glass" style="--d:160">
+            <header class="sheet__head">
+              <h2 class="sheet__title">Bidding summary</h2>
+              <span class="chip">Illustrative sample</span>
+            </header>
+            <dl class="rows">
+              <div><dt>Bidders</dt><dd><span class="redact">1 bidder</span></dd></div>
+              <div><dt>Winning bid</dt><dd><span class="redact">99.8% of budget</span></dd></div>
+              <div><dt>District share</dt><dd><span class="redact">71% of contracts</span></dd></div>
+            </dl>
+            <p class="verdict"><strong>Risk reading:</strong> <span class="redact redact--flag">High, verify on the ground</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="band--ink section" id="problem" aria-labelledby="problem-title">
+      <div class="wrap problem">
+        <div>
+          <div class="sec-head" data-focus>
+            <h2 id="problem-title">Most public projects can't be checked by the people who pay for them.</h2>
+            <p>Every road, flood wall and classroom is paid for with public money. But who won the contract, what it cost, and whether it was built are scattered, vague, or hard to read. Where nobody can check, ghost projects, padded costs and favoured contractors can last for years.</p>
+          </div>
+
+          <p class="define glass glass--ink"><strong>Ghost project.</strong> A project reported as done, and paid for, that was never built or can't be found.</p>
+
+          <div class="compare glass glass--ink" data-bars>
+            <h3>How a score of 32 compares</h3>
+            <div class="bar"><span class="bar__label">Top: Denmark</span><span class="bar__track"><span class="bar__fill" style="--w:89%"></span></span><span class="bar__val">89</span></div>
+            <div class="bar"><span class="bar__label">Asia-Pacific average</span><span class="bar__track"><span class="bar__fill" style="--w:45%"></span></span><span class="bar__val">45</span></div>
+            <div class="bar"><span class="bar__label">Global average</span><span class="bar__track"><span class="bar__fill" style="--w:42%"></span></span><span class="bar__val">42</span></div>
+            <div class="bar bar--ph"><span class="bar__label">Philippines</span><span class="bar__track"><span class="bar__fill" style="--w:32%"></span></span><span class="bar__val">32</span></div>
+            <p class="compare__note">Corruption Perceptions Index 2025. 0 means highly corrupt, 100 means very clean. Source: Transparency International, reported by Philstar and Inquirer Global Nation.</p>
+          </div>
+        </div>
+
+        <div class="ledger glass glass--ink" data-ledger aria-label="Key figures">
+          <div class="ledger__row">
+            <div class="ledger__label"><strong>Corruption Perceptions Index</strong><span>Rank 120 of 182 countries. The lowest score since the current scoring system began in 2012.</span></div>
+            <div class="ledger__value"><span data-to="32">32</span><small>out of 100</small></div>
+            <p class="ledger__src">Transparency International, 2025 index, published February 2026</p>
+          </div>
+          <div class="ledger__row">
+            <div class="ledger__label"><strong>Flood control spending</strong><span>Across 9,855 projects from July 2022 to May 2025.</span></div>
+            <div class="ledger__value">₱<span data-to="545.64" data-dec="2">545.64</span><small>billion</small></div>
+            <p class="ledger__src">Figures cited by the President, reported by PhilSTAR Life and Inquirer</p>
+          </div>
+          <div class="ledger__row">
+            <div class="ledger__label"><strong>Ghost projects confirmed</strong><span>Out of about 8,000 flood control works inspected nationwide.</span></div>
+            <div class="ledger__value"><span data-to="421">421</span><small>projects</small></div>
+            <p class="ledger__src">DPWH report to the Independent Commission for Infrastructure, 9 October 2025</p>
+          </div>
+          <div class="ledger__row">
+            <div class="ledger__label"><strong>Went to just 15 contractors</strong><span>Contracts from the same program, concentrated in very few hands.</span></div>
+            <div class="ledger__value"><small class="pre">nearly</small>₱<span data-to="100">100</span><small>billion</small></div>
+            <p class="ledger__src">Philippine Center for Investigative Journalism, via Inquirer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT HAPPENS: a true sequence -->
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="sec-head" data-focus>
+          <h2 id="how-title">Follow one peso through five checkpoints.</h2>
+          <p>Corruption rarely happens in one step. It slips in at points where the public can't see what is going on. Each checkpoint below is also a place where a citizen, with the right information, can ask a better question.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__node" aria-hidden="true">1</span>
+            <div class="glass">
+              <h3>Budget</h3>
+              <h4>Where it goes wrong</h4>
+              <p>Project descriptions are vague, so nobody can tell what will really be built. Reports flagged over ₱350 billion in projects with unclear specifications.</p>
+              <h4>How you check</h4>
+              <p class="fix">Is there a place, a size and a purpose? A specific project is easier to verify.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__node" aria-hidden="true">2</span>
+            <div class="glass">
+              <h3>Bidding</h3>
+              <h4>Where it goes wrong</h4>
+              <p>Few firms compete, or the same few keep winning. Nearly ₱100 billion went to 15 contractors.</p>
+              <h4>How you check</h4>
+              <p class="fix">How many bid, and who keeps winning in your area?</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__node" aria-hidden="true">3</span>
+            <div class="glass">
+              <h3>Construction</h3>
+              <h4>Where it goes wrong</h4>
+              <p>The work is poor, partly done, or never started. Officials confirmed 421 ghost projects.</p>
+              <h4>How you check</h4>
+              <p class="fix">Go and look. A dated photo from a safe distance is strong evidence.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__node" aria-hidden="true">4</span>
+            <div class="glass">
+              <h3>Payment</h3>
+              <h4>Where it goes wrong</h4>
+              <p>Money is released for work reported as complete, whether or not it is.</p>
+              <h4>How you check</h4>
+              <p class="fix">Compare the reported status and cost with what you can see on site.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__node" aria-hidden="true">5</span>
+            <div class="glass">
+              <h3>Audit</h3>
+              <h4>Where it goes wrong</h4>
+              <p>Problems surface late, often only after floods or whistleblowers force a look.</p>
+              <h4>How you check</h4>
+              <p class="fix">Send a clear report with evidence to the official channels that can investigate.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TOOLS + LIVE RISK READER -->
+    <section class="section" id="tools" style="padding-top:0" aria-labelledby="tools-title">
+      <div class="wrap split">
+        <div>
+          <div class="sec-head" data-focus>
+            <h2 id="tools-title">Practice seeing clearly.</h2>
+            <p>Three tools turn the checkpoints into things you can try. Start with the risk reader on this page. It works the way the full tools do.</p>
+          </div>
+          <div class="toollist">
+            <a class="tool glass" href="tools.html#detective">
+              <strong>Red Flag Detective</strong>
+              <span>A quick quiz on real procurement warning signs. Find out how many you catch.</span>
+              <em>Start the quiz</em>
+            </a>
+            <a class="tool glass" href="tools.html#checker">
+              <strong>Project Risk Checker</strong>
+              <span>Enter a project's details and get a plain-language reading, with reasons.</span>
+              <em>Check a project</em>
+            </a>
+            <a class="tool glass" href="tools.html#report">
+              <strong>Report Guide</strong>
+              <span>Build a clear, evidence-based report, then send it through an official channel.</span>
+              <em>Prepare a report</em>
+            </a>
+          </div>
+        </div>
+
+        <section class="meter glass" data-meter data-level="low" aria-labelledby="meter-title">
+          <h3 id="meter-title">Try the risk reader</h3>
+          <p class="meter__lead">Pick the warning signs you can see in a project record.</p>
+          <div class="chips">
+            <button class="flag" type="button" aria-pressed="false" data-weight="25" data-why="Only one bidder means the price may never have been tested by competition.">Only one bidder</button>
+            <button class="flag" type="button" aria-pressed="false" data-weight="15" data-why="A winning bid right at the approved budget can mean the price was never negotiated.">Winning bid is 99% or more of the budget</button>
+            <button class="flag" type="button" aria-pressed="false" data-weight="25" data-why="Contracts concentrated in a few firms are a classic procurement warning sign.">One contractor wins most nearby contracts</button>
+            <button class="flag" type="button" aria-pressed="false" data-weight="25" data-why="A project marked complete that nobody can see or locate needs a site check.">Reported complete, but no photos or can't be found</button>
+            <button class="flag" type="button" aria-pressed="false" data-weight="10" data-why="Without a place, size or purpose, a project is almost impossible to verify.">Vague description</button>
+          </div>
+
+          <div class="gauge" role="img" aria-label="Risk gauge">
+            <svg viewBox="0 0 200 112">
+              <path class="gauge__track" d="M16 100 A84 84 0 0 1 184 100" pathLength="100"/>
+              <path class="gauge__fill" d="M16 100 A84 84 0 0 1 184 100" pathLength="100" style="stroke-dasharray:0 200;stroke-opacity:0"/>
+              <g class="gauge__needle" style="transform:rotate(-90deg)">
+                <line x1="100" y1="100" x2="100" y2="36" stroke="#0a1b33" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="100" cy="100" r="8" fill="#0a1b33"/>
+                <circle cx="100" cy="100" r="3" fill="#f6b72b"/>
+              </g>
+            </svg>
+          </div>
+          <p class="gauge__readout" aria-live="polite"><span class="gauge__score" data-score>0</span></p>
+          <p class="meter__level" data-level-text aria-live="polite">Low: nothing stands out yet</p>
+          <ul class="meter__why" data-reasons></ul>
+          <p class="meter__note">A risk reading points to where to look first. It is not proof that anyone did anything wrong.</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- STS LENS -->
+    <section class="section" id="sts" style="padding-top:0" aria-labelledby="sts-title">
+      <div class="wrap">
+        <div class="sec-head" data-focus>
+          <h2 id="sts-title">Technology doesn't fix corruption by itself.</h2>
+          <p>A portal, a map, or an app only helps if people can use it and if the data behind it is honest. That is the Science, Technology and Society question at the heart of this project.</p>
+        </div>
+        <div class="trio">
+          <article class="idea glass">
+            <div class="idea__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Technology reflects who built it</h3>
+            <p>A transparency portal shows only the data its builders chose to publish. Design decisions are political decisions.</p>
+            <small>Social construction of technology</small>
+          </article>
+          <article class="idea glass">
+            <div class="idea__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Technology changes who holds power</h3>
+            <p>Open data lets ordinary people check what only auditors could before. In 2025, a public map and report form drew more than 20,000 citizen reports in three months.</p>
+            <small>Technology and democratic participation</small>
+          </article>
+          <article class="idea glass">
+            <div class="idea__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+            <h3>Access decides who benefits</h3>
+            <p>A portal helps only those with internet, data skills, and time. Without them, transparency stays on paper.</p>
+            <small>The digital divide</small>
+          </article>
+        </div>
+        <div class="more"><a class="btn btn--glass" href="sts.html"><span>Read the full STS lens</span></a></div>
+      </div>
+    </section>
+
+    <!-- CLOSING CALL TO ACTION -->
+    <section class="wrap" aria-labelledby="cta-title">
+      <div class="cta">
+        <div class="cta__lens" aria-hidden="true"></div>
+        <h2 id="cta-title">You don't have to be an auditor to ask a good question.</h2>
+        <p>Check a project, learn what a red flag looks like, and know exactly where to take a concern. Clear information is the first step toward accountability.</p>
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="tools.html#checker"><span>Check a project</span></a>
+          <a class="btn btn--glass" href="action.html"><span>Find official channels</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-chrome="footer"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
