@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tools | Linaw</title>
+  <meta name="description" content="Three tools: the Red Flag Detective quiz, the Project Risk Checker, and a Report Guide that prepares an evidence-based concern for official channels.">
+  <meta name="theme-color" content="#e8eef5">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div data-chrome="header"></div>
+
+  <main id="main">
+
+    <header class="page-hero page-hero--tight">
+      <div class="page-ring" aria-hidden="true"></div>
+      <div class="wrap">
+        <h1 class="page-title">Learn the signs, check a project, send a clear report.</h1>
+        <p class="page-lede">Three tools that follow the same path as a real concern: learn what to look for, weigh what you found, then take it to the people who can investigate. Nothing you type leaves your device.</p>
+      </div>
+    </header>
+
+    <section class="section section--tight" style="padding-top:0" aria-label="Tools">
+      <div class="wrap">
+
+        <div class="tabbar glass" role="tablist" aria-label="Linaw tools">
+          <button type="button" role="tab" id="tab-detective" data-tab="detective" aria-controls="detective" aria-selected="true"><b>Red Flag Detective</b><span>Eight questions, instant feedback</span></button>
+          <button type="button" role="tab" id="tab-checker" data-tab="checker" aria-controls="checker" aria-selected="false" tabindex="-1"><b>Project Risk Checker</b><span>Weigh what you found</span></button>
+          <button type="button" role="tab" id="tab-report" data-tab="report" aria-controls="report" aria-selected="false" tabindex="-1"><b>Report Guide</b><span>Prepare a clear concern</span></button>
+        </div>
+
+        <!-- 1. DETECTIVE -->
+        <section id="detective" class="panel" role="tabpanel" aria-labelledby="tab-detective">
+          <p class="panel__intro">Each question shows a short sample record, like the ones in a real project file. Pick your answer, then read why. The scenarios are made up, but the warning signs come from the 2025 flood control case.</p>
+          <div class="detect">
+            <div class="quiz glass" id="quiz" aria-live="polite"></div>
+            <aside class="signs glass" aria-labelledby="signs-title">
+              <h3 id="signs-title">The five warning signs</h3>
+              <p>The quiz, the Tracker and the risk reader all use these. The number shows how much each adds to a score out of 100.</p>
+              <ul id="signs"></ul>
+            </aside>
+          </div>
+        </section>
+
+        <!-- 2. CHECKER -->
+        <section id="checker" class="panel" role="tabpanel" aria-labelledby="tab-checker" hidden>
+          <p class="panel__intro">Enter what you can find about a project. Leave anything you don't know as "Not sure". The reading updates as you go and tells you what to verify next.</p>
+          <div class="checker">
+            <form class="form glass" id="cform" novalidate autocomplete="off">
+              <div class="fgrid">
+                <label>Project name or ID (optional)<input id="c-name" type="text" placeholder="e.g. Riverbank wall, Brgy. Sample"></label>
+                <label>Region<select id="c-region"></select></label>
+              </div>
+              <div class="fgrid">
+                <label>Approved budget (₱)<input id="c-budget" type="number" inputmode="numeric" min="0" step="any" placeholder="e.g. 48500000"></label>
+                <label>Winning bid (₱)<input id="c-bid" type="number" inputmode="numeric" min="0" step="any" placeholder="e.g. 48400000"></label>
+              </div>
+              <p class="form__hint" id="c-ratio" aria-live="polite">Add both amounts to check how close the winning bid is to the budget.</p>
+              <div class="fgrid">
+                <label>How many firms bid?
+                  <select id="c-bidders"><option value="">Not sure</option><option value="1">Only 1</option><option value="2">2</option><option value="3">3</option><option value="4">4 or more</option></select>
+                </label>
+                <label>Share of nearby contracts won by this contractor
+                  <select id="c-share"><option value="">Not sure</option><option value="lt25">Under 25%</option><option value="mid">25% to 50%</option><option value="gt50">More than 50%</option></select>
+                </label>
+              </div>
+              <div class="fgrid">
+                <label>Reported status
+                  <select id="c-status"><option value="">Not sure</option><option value="Not started">Not started</option><option value="Ongoing">Ongoing</option><option value="Completed">Completed</option></select>
+                </label>
+                <label>Did you find it on the ground?
+                  <select id="c-seen"><option value="">I haven't checked yet</option><option value="yes">Yes, I saw it and have a dated photo</option><option value="no">No, I couldn't find or see it</option></select>
+                </label>
+              </div>
+              <label>How is the project described?
+                <select id="c-desc"><option value="">Not sure</option><option value="specific">Specific: it names a place, size or purpose</option><option value="vague">Vague: no place, size or purpose</option></select>
+              </label>
+              <div class="form__actions">
+                <button type="reset" class="btn btn--glass btn--sm" id="c-reset"><span>Clear the form</span></button>
+              </div>
+            </form>
+
+            <section class="meter glass" id="cmeter" data-level="low" aria-labelledby="cm-title" aria-live="polite">
+              <h3 id="cm-title">Your risk reading</h3>
+              <p class="meter__lead" id="c-checked">Signs checked: 0 of 5</p>
+              <div class="gauge" role="img" aria-label="Risk gauge">
+                <svg viewBox="0 0 200 112">
+                  <path class="gauge__track" d="M16 100 A84 84 0 0 1 184 100" pathLength="100"/>
+                  <path class="gauge__fill" d="M16 100 A84 84 0 0 1 184 100" pathLength="100" style="stroke-dasharray:0 200;stroke-opacity:0"/>
+                  <g class="gauge__needle" style="transform:rotate(-90deg)">
+                    <line x1="100" y1="100" x2="100" y2="36" stroke="#0a1b33" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="100" cy="100" r="8" fill="#0a1b33"/><circle cx="100" cy="100" r="3" fill="#f6b72b"/>
+                  </g>
+                </svg>
+              </div>
+              <p class="gauge__readout"><span class="gauge__score" id="c-score">0</span></p>
+              <p class="meter__level" id="c-level">Low: nothing stands out yet</p>
+              <h4>Why</h4>
+              <ul class="meter__why" id="c-why"></ul>
+              <h4 id="c-next-h" hidden>What to check next</h4>
+              <ul class="meter__next" id="c-next"></ul>
+              <div class="form__actions" style="margin-top:18px">
+                <a class="btn btn--primary btn--sm" id="c-report" href="#report"><span>Prepare a report</span></a>
+                <button type="button" class="btn btn--glass btn--sm" id="c-copy"><span>Copy summary</span></button>
+              </div>
+              <p class="meter__note">A risk reading points to where to look first. It is not proof that anyone did anything wrong. Only investigators and courts can decide that.</p>
+            </section>
+          </div>
+        </section>
+
+        <!-- 3. REPORT -->
+        <section id="report" class="panel" role="tabpanel" aria-labelledby="tab-report" hidden>
+          <p class="panel__intro">Good reports are specific, factual and easy to act on. Answer four short steps and Linaw writes a clean draft you can copy and send. It is built on your device, and nothing is stored or sent anywhere.</p>
+          <div id="sample-note" class="note sample-note" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".6"/></svg>
+            <span>You came from a <strong>sample record</strong> on the Tracker. Practise freely, but do not send this draft to a real agency.</span>
+          </div>
+
+          <div class="wizard glass" id="wizard">
+            <ol class="wnav" id="wnav" aria-label="Progress">
+              <li><i></i><span>What you saw</span></li>
+              <li><i></i><span>Where</span></li>
+              <li><i></i><span>Details</span></li>
+              <li><i></i><span>Review and send</span></li>
+            </ol>
+
+            <div class="wstep" data-step="1">
+              <h3>What did you see?</h3>
+              <p>Pick the closest match. These are the same categories the DPWH Transparency Portal uses.</p>
+              <div class="choices" role="radiogroup" aria-label="Type of concern">
+                <label class="choice"><input type="radio" name="rtype" value="Not found (reported as done, but nothing is there)"><b>Not found</b><span>Reported as done, but there is nothing there. A possible ghost project.</span></label>
+                <label class="choice"><input type="radio" name="rtype" value="Unfinished (work stopped or never completed)"><b>Unfinished</b><span>Work stopped or was never completed.</span></label>
+                <label class="choice"><input type="radio" name="rtype" value="Poor quality (cracks, weak materials, or work that has already failed)"><b>Poor quality</b><span>Cracks, weak materials, or work that has already failed.</span></label>
+                <label class="choice"><input type="radio" name="rtype" value="Possible duplicate (the same work appears to be paid for twice)"><b>Possible duplicate</b><span>The same work seems to be paid for twice.</span></label>
+                <label class="choice"><input type="radio" name="rtype" value="Another concern about a public project"><b>Something else</b><span>A different concern about a public project.</span></label>
+              </div>
+              <p class="err" id="e1"></p>
+            </div>
+
+            <div class="wstep" data-step="2" hidden>
+              <h3>Where is it?</h3>
+              <p>Location is the most useful detail. Be as exact as you can.</p>
+              <div class="form" style="padding:0;background:none;box-shadow:none;border:0;backdrop-filter:none;gap:16px">
+                <div class="fgrid">
+                  <label>Region<select id="r-region"></select></label>
+                  <label>City or municipality<input id="r-city" type="text" placeholder="e.g. Sample City"></label>
+                </div>
+                <div class="fgrid">
+                  <label>Barangay<input id="r-brgy" type="text" placeholder="e.g. Brgy. Sample 4"></label>
+                  <label>Landmark nearby (optional)<input id="r-land" type="text" placeholder="e.g. beside the covered court"></label>
+                </div>
+                <label>Project name or ID, if known (optional)<input id="r-proj" type="text" placeholder="e.g. Riverbank protection wall"></label>
+              </div>
+              <p class="err" id="e2"></p>
+            </div>
+
+            <div class="wstep" data-step="3" hidden>
+              <h3>What exactly looks wrong?</h3>
+              <p>Describe what you observed, not who you think is responsible.</p>
+              <div class="form" style="padding:0;background:none;box-shadow:none;border:0;backdrop-filter:none;gap:16px">
+                <label>Date you saw it<input id="r-date" type="date"></label>
+                <label>What you saw
+                  <textarea id="r-desc" placeholder="e.g. The project is listed as completed, but at the site there is only an empty riverbank with no wall."></textarea>
+                </label>
+                <label>Evidence you have
+                  <select id="r-evid"><option value="I have dated photos or video taken from a public place.">I have dated photos or video</option><option value="I do not have photos. These are my own notes from visiting.">Notes only, no photos yet</option><option value="Other people in the community can confirm what I saw.">Other residents can confirm it</option></select>
+                </label>
+              </div>
+              <p class="tip"><strong>Stay safe.</strong> Take photos from a public road or space. Never enter a restricted site, confront anyone, or share the draft publicly before you have sent it to an official channel.</p>
+              <p class="err" id="e3"></p>
+            </div>
+
+            <div class="wstep" data-step="4" hidden>
+              <h3>Review and send</h3>
+              <p>Here is your draft. Copy it, add your contact details if you want a reply, and send it through one of the channels below.</p>
+              <div class="draft" id="draft" tabindex="0" aria-label="Report draft"></div>
+              <div class="wactions">
+                <button type="button" class="btn btn--primary btn--sm" id="r-copy"><span>Copy the report</span></button>
+                <button type="button" class="btn btn--glass btn--sm" id="r-dl"><span>Download as .txt</span></button>
+                <button type="button" class="linkbtn" id="r-restart">Start over</button>
+              </div>
+              <p class="err" id="e4" aria-live="polite"></p>
+            </div>
+
+            <div class="wactions" id="wnavbtns">
+              <button type="button" class="btn btn--glass btn--sm" id="r-back" hidden><span>Back</span></button>
+              <button type="button" class="btn btn--primary btn--sm" id="r-next"><span>Continue</span></button>
+            </div>
+          </div>
+
+          <div class="sec-head" style="margin:44px 0 18px;max-width:none">
+            <h2 style="font-size:clamp(1.7rem,2.8vw,2.3rem)">Where to send it</h2>
+            <p style="margin-top:10px">These are official channels. Contact details can change, so confirm them on each agency's own website before you send.</p>
+          </div>
+          <div class="channels">
+            <article class="channel glass"><b>DPWH Transparency Portal</b><p>Find the project on the map, then use its report option and tag it as ghost, unfinished, defective or duplicate. You can attach photos.</p><a href="https://transparency.dpwh.gov.ph" target="_blank" rel="noopener">transparency.dpwh.gov.ph</a></article>
+            <article class="channel glass"><b>Contact Center ng Bayan</b><p>Call 16565 or text 0908-881-6565 to file a complaint or report about a government service or official.</p><a href="https://contactcenterngbayan.gov.ph" target="_blank" rel="noopener">contactcenterngbayan.gov.ph</a></article>
+            <article class="channel glass"><b>Citizens' Complaint Center</b><p>Call or text 8888 for complaints about government services and officials.</p></article>
+            <article class="channel glass"><b>Office of the Ombudsman</b><p>The principal body for investigating graft. It acts on complaints filed in any form.</p><a href="https://www.ombudsman.gov.ph" target="_blank" rel="noopener">ombudsman.gov.ph</a></article>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div data-chrome="footer"></div>
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/tools.js"></script>
+</body>
+</html>

@@ -6,10 +6,15 @@ linaw-sts/
   index.html        Home (built)
   understand.html   Causes, costs, people, case timeline, laws (built)
   sts.html          Six STS concepts linked to the case and to Linaw (built)
+  tracker.html      Sample-data dashboard: tile map, filters, project detail (built)
+  tools.html        Red Flag Detective, Risk Checker, Report Guide (built)
   css/styles.css    Design system (colors, fonts, glass, buttons, layout)
   js/main.js        Header/footer, the Lens, reveals, counters, risk reader
+  js/data.js        Sample-data generator + risk scoring (shared)
+  js/tracker.js     Tracker page logic
+  js/tools.js       Quiz, checker, report wizard
   assets/           favicon and images
-  (coming next: tracker.html, tools.html, action.html, sources.html, team.html)
+  (coming next: action.html, sources.html, team.html)
 
 ## Run it on your computer
 1. Install VS Code (code.visualstudio.com).

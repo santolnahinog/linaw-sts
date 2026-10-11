@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracker | Linaw</title>
+  <meta name="description" content="Explore how procurement warning signs appear across a set of sample public projects. Pick a region, open a project, and see why it was flagged.">
+  <meta name="theme-color" content="#e8eef5">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div data-chrome="header"></div>
+
+  <main id="main">
+
+    <header class="page-hero page-hero--tight">
+      <div class="page-ring" aria-hidden="true"></div>
+      <div class="wrap">
+        <h1 class="page-title">See where the warning signs gather.</h1>
+        <p class="page-lede">The Tracker is the prototype of a citizen dashboard. Pick a region, open a project, and see exactly why it was flagged. Every record here is a randomly generated sample.</p>
+      </div>
+    </header>
+
+    <section class="section section--tight" style="padding-top:0" aria-labelledby="map-title">
+      <div class="wrap">
+        <h2 id="map-title" class="sr-only">Region map and details</h2>
+
+        <p class="note" style="margin-top:0">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".6"/></svg>
+          <span><strong>Sample data.</strong> These projects, firms and places are randomly generated for this prototype. They do not describe real projects, and no region is being compared with another. Press <em>Shuffle sample</em> and watch the map change completely.</span>
+        </p>
+
+        <div class="kpis">
+          <div class="kpi glass"><span>Sample projects</span><b id="k-n">0</b></div>
+          <div class="kpi glass"><span>Total value</span><b id="k-v">0</b></div>
+          <div class="kpi glass"><span>High-risk projects</span><b id="k-h">0</b><small id="k-hs"></small></div>
+          <div class="kpi glass"><span>Average risk score</span><b id="k-a">0</b><small>out of 100</small></div>
+        </div>
+
+        <div class="tracker">
+          <div class="mapcard glass">
+            <div class="mapcard__top">
+              <div class="seg" role="group" aria-label="What the map colours show">
+                <button type="button" data-metric="avg" aria-pressed="true">Average risk</button>
+                <button type="button" data-metric="high" aria-pressed="false">High-risk share</button>
+                <button type="button" data-metric="one" aria-pressed="false">Single-bidder share</button>
+              </div>
+              <div class="mapcard__actions">
+                <button type="button" id="shuffle" class="btn btn--glass btn--sm"><span>Shuffle sample</span></button>
+                <button type="button" id="reset" class="linkbtn">Reset</button>
+              </div>
+            </div>
+
+            <div id="tilemap" class="tilemap" role="group" aria-label="Philippine regions, shown as a tile map"></div>
+
+            <div class="legend">
+              <span>Lower</span><i aria-hidden="true"></i><span>Higher</span>
+              <em><span id="legend-label">Average risk</span>. <span id="seed">Default sample</span></em>
+            </div>
+          </div>
+
+          <aside class="detail glass" id="detail" aria-live="polite" aria-label="Region details"></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="band--ink section" aria-labelledby="firms-title">
+      <div class="wrap two">
+        <div class="sec-head" data-focus style="margin-bottom:0">
+          <h2 id="firms-title">Who wins the contracts?</h2>
+          <p>Concentration is one of the clearest procurement warning signs. This chart shows how much of the sample's total value goes to the six biggest firms.</p>
+        </div>
+        <div class="glass glass--ink firmcard">
+          <div id="firms" class="fbars fbars--ink"></div>
+          <p class="compare__note" id="firm-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="sec-head" data-focus>
+          <h2 id="projects-title">Every sample project</h2>
+          <p>Search, filter and open any record. The risk score uses the same five warning signs as the risk reader on the home page.</p>
+        </div>
+
+        <div class="controls glass">
+          <label class="field field--grow"><span>Search</span><input id="q" type="search" placeholder="Project, firm or place" autocomplete="off"></label>
+          <label class="field"><span>Region</span><select id="rsel"></select></label>
+          <label class="field"><span>Risk level</span>
+            <select id="lsel"><option value="all">All levels</option><option value="high">High</option><option value="mid">Worth a look</option><option value="low">Low</option></select>
+          </label>
+          <label class="field"><span>Sort by</span>
+            <select id="ssel"><option value="risk">Highest risk</option><option value="cost">Highest cost</option></select>
+          </label>
+        </div>
+
+        <ul id="plist" class="plist" aria-label="Sample projects"></ul>
+        <div class="plist__foot">
+          <p id="pcount" aria-live="polite"></p>
+          <button type="button" id="more" class="btn btn--glass btn--sm"><span>Show more</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="next-title">
+      <div class="cta">
+        <div class="cta__lens" aria-hidden="true"></div>
+        <h2 id="next-title">Found something in your own community?</h2>
+        <p>Check a real project with the risk checker, then use the report guide to send a clear, evidence-based concern to an official channel.</p>
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="tools.html#checker"><span>Check a project</span></a>
+          <a class="btn btn--glass" href="tools.html#report"><span>Prepare a report</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog id="pd" class="pd" aria-labelledby="pd-title"><div id="pd-body"></div></dialog>
+
+  <div data-chrome="footer"></div>
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/tracker.js"></script>
+</body>
+</html>
