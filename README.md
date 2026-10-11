@@ -4,11 +4,12 @@ STS Final Activity. Website prototype on the issue of Corruption (Philippines).
 ## Folder structure
 linaw-sts/
   index.html        Home (built)
+  understand.html   Causes, costs, people, case timeline, laws (built)
+  sts.html          Six STS concepts linked to the case and to Linaw (built)
   css/styles.css    Design system (colors, fonts, glass, buttons, layout)
   js/main.js        Header/footer, the Lens, reveals, counters, risk reader
   assets/           favicon and images
-  (coming next: understand.html, sts.html, tracker.html, tools.html,
-   action.html, sources.html, team.html)
+  (coming next: tracker.html, tools.html, action.html, sources.html, team.html)
 
 ## Run it on your computer
 1. Install VS Code (code.visualstudio.com).

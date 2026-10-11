@@ -234,10 +234,41 @@
     update();
   }
 
+  /* ---------- 6. INNER PAGES: reading progress + section menu ---------- */
+  function initInner() {
+    if (!$(".page-hero")) return;
+    const bar = document.createElement("div");
+    bar.className = "progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    let ticking = false;
+    const set = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+      if (scrollY < 140) $$('.jump a').forEach((a) => a.classList.remove('is-active'));
+      ticking = false;
+    };
+    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(set); } }, { passive: true });
+    set();
+
+    const links = $$('.jump a[href^="#"]');
+    const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        links.forEach((a) => a.classList.remove("is-active"));
+        const a = map.get(en.target.id);
+        if (a) a.classList.add("is-active");
+      });
+    }, { rootMargin: "-35% 0px -60% 0px" });
+    map.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
   /* ---------- boot ---------- */
   renderChrome();
   initLens();
   initReveals();
   initSpotlight();
   initMeter();
+  initInner();
 })();
