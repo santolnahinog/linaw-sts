@@ -14,7 +14,10 @@ linaw-sts/
   js/tracker.js     Tracker page logic
   js/tools.js       Quiz, checker, report wizard
   assets/           favicon and images
-  (coming next: action.html, sources.html, team.html)
+  action.html       Safe steps, channel chooser, printable checklist (built)
+  sources.html      Method, future improvements, 40 sources (built)
+  team.html         Team, process, site map (built)
+  js/action.js      Channel chooser
 
 ## Run it on your computer
 1. Install VS Code (code.visualstudio.com).
@@ -29,3 +32,9 @@ Open js/main.js and change the NAV list near the top.
 Fonts (Newsreader, Hanken Grotesk) load from Google Fonts, so connect to the
 internet at least once. For the classroom presentation, open the site once
 beforehand so the fonts are cached, or ask me for an offline-fonts version.
+
+## Before you present
+1. In VS Code press Ctrl+Shift+F and search for  EDIT:  to find every gold placeholder (team.html).
+2. Replace the text and delete class="ph" so the gold highlight disappears.
+3. Open the live site once on the presentation computer so the fonts are cached.
+4. Keep a copy of this folder (zip) on a USB drive as a backup.
